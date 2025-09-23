@@ -1,0 +1,481 @@
+openapi: 3.0.1
+
+info:
+  title: Yanki Wallet Service
+  version: 3.0.0
+  description: |
+    API para registro de monederos Yanki y enlace/desenlace de tarjeta de débito
+
+servers:
+  - url: http://localhost:8181
+    description: Local server
+
+
+paths:
+
+  /api/wallets:
+    post:
+      tags:
+        - Wallets
+      summary: Registrar un nuevo monedero
+      operationId: createWallet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WalletRegisterRequest"
+            examples:
+              ok:
+                value:
+                  documentType: DNI
+                  documentNumber: "47123456"
+                  phone: "999111222"
+                  imei: "356938035643809"
+                  email: "user@example.com"
+      responses:
+        "201":
+          description: Creado
+          headers:
+            Location:
+              description: URL del recurso creado
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WalletResource"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "422":
+          $ref: "#/components/responses/UnprocessableEntity"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+    get:
+      tags:
+        - Wallets
+      summary: Listar monederos
+      operationId: listWallets
+      parameters:
+        - in: query
+          name: phone
+          schema:
+            type: string
+        - in: query
+          name: documentType
+          schema:
+            $ref: "#/components/schemas/DocumentType"
+        - in: query
+          name: documentNumber
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WalletResource"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+  /api/wallets/{walletId}:
+    get:
+      tags:
+        - Wallets
+      summary: Obtener monedero por ID
+      operationId: getWalletById
+      parameters:
+        - in: path
+          name: walletId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WalletResource"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+  /api/wallets/by-phone/{phone}:
+    get:
+      tags:
+        - Wallets
+      summary: Obtener monedero por numero de celular
+      operationId: getWalletByPhone
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WalletResource"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+  /api/wallets/{phone}/link-debit-card:
+    post:
+      tags:
+        - Wallets
+      summary: Enlazar tarjeta de debito al monedero
+      operationId: linkDebitCard
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LinkDebitRequest"
+            examples:
+              ok:
+                value:
+                  debitCardId: "5f8f8c44c0a8f40012ab34de"
+      responses:
+        "204":
+          description: Enlace realizado
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+  /api/wallets/{phone}/unlink-debit-card:
+    post:
+      tags:
+        - Wallets
+      summary: Desenlazar la tarjeta de debito del monedero
+      operationId: unlinkDebitCard
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Desenlace realizado
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+  /api/wallets/{phone}/suspend:
+    post:
+      tags: [ Wallets ]
+      summary: Suspender un monedero
+      description: Cambia el estado del monedero a **SUSPENDED**. Publica `wallet.updated`.
+      operationId: suspendWallet
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SuspendRequest"
+            examples:
+              fraude:
+                value:
+                  reason: "Fraude reportado por el usuario"
+      responses:
+        "204": { description: Monedero suspendido }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "409": { $ref: "#/components/responses/Conflict" }   # transición inválida (p.ej. CLOSED → SUSPENDED)
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "500": { $ref: "#/components/responses/ServerError" }
+
+  /api/wallets/{phone}/reactivate:
+    post:
+      tags: [ Wallets ]
+      summary: Reactivar un monedero
+      description: Cambia el estado del monedero a **ACTIVE**. Publica `wallet.updated`.
+      operationId: reactivateWallet
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema: { type: string }
+      responses:
+        "204": { description: Monedero reactivado }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "409": { $ref: "#/components/responses/Conflict" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "500": { $ref: "#/components/responses/ServerError" }
+
+  /api/wallets/{phone}:
+    delete:
+      tags: [ Wallets ]
+      summary: Cerrar un monedero (soft delete)
+      description: Cambia el estado a **CLOSED**, desenlaza la tarjeta si existe y publica `wallet.updated`.
+      operationId: closeWallet
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema: { type: string }
+        - in: query
+          name: reason
+          required: false
+          schema: { type: string }
+          description: Motivo de cierre (auditoría)
+      responses:
+        "204": { description: Monedero cerrado }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "409": { $ref: "#/components/responses/Conflict" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "500": { $ref: "#/components/responses/ServerError" }
+
+
+  /_health:
+    get:
+      tags:
+        - Meta
+      summary: Health check
+      operationId: health
+      security: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - status
+                properties:
+                  status:
+                    type: string
+                    example: UP
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Enviar `Authorization: Bearer <token>`"
+
+  schemas:
+
+    DocumentType:
+      type: string
+      enum:
+        - DNI
+        - CEX
+        - PASSPORT
+
+    WalletState:
+      type: string
+      description: Estado del monedero
+      enum: [ ACTIVE, SUSPENDED, CLOSED ]
+
+    SuspendRequest:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: Motivo de suspensión (auditoría)
+          example: "Fraude reportado por el usuario"
+
+    WalletRegisterRequest:
+      type: object
+      required:
+        - documentType
+        - documentNumber
+        - phone
+        - imei
+        - email
+      properties:
+        documentType:
+          $ref: "#/components/schemas/DocumentType"
+        documentNumber:
+          type: string
+          minLength: 4
+          maxLength: 20
+        phone:
+          type: string
+          pattern: "^[0-9]{9,15}$"
+        imei:
+          type: string
+          minLength: 10
+          maxLength: 20
+        email:
+          type: string
+          format: email
+
+    WalletResource:
+      type: object
+      required:
+        - id
+        - documentType
+        - documentNumber
+        - phone
+        - email
+        - balance
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+        documentType:
+          $ref: "#/components/schemas/DocumentType"
+        documentNumber:
+          type: string
+        phone:
+          type: string
+        imei:
+          type: string
+        email:
+          type: string
+          format: email
+        linkedCardId:
+          type: string
+          description: ID de tarjeta de debito enlazada
+        balance:
+          type: number
+          format: double
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    LinkDebitRequest:
+      type: object
+      required:
+        - debitCardId
+      properties:
+        debitCardId:
+          type: string
+          description: ID de la tarjeta en CardsService
+    PageMetadata:
+      type: object
+      required:
+        - page
+        - size
+        - totalElements
+        - totalPages
+      properties:
+        page:
+          type: integer
+          minimum: 0
+        size:
+          type: integer
+          minimum: 1
+        totalElements:
+          type: integer
+          minimum: 0
+        totalPages:
+          type: integer
+          minimum: 0
+
+    WalletPage:
+      type: object
+      required:
+        - content
+        - page
+      properties:
+        content:
+          type: array
+          items:
+            $ref: "#/components/schemas/WalletResource"
+        page:
+          $ref: "#/components/schemas/PageMetadata"
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+        - traceId
+      properties:
+        code:
+          type: string
+          example: "BAD_REQUEST"
+        message:
+          type: string
+          example: "El numero de celular es invalido"
+        traceId:
+          type: string
+          description: Correlacion para soporte
+
+  responses:
+    BadRequest:
+      description: Solicitud invalida
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Unauthorized:
+      description: No autenticado
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NotFound:
+      description: Recurso no encontrado
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Conflict:
+      description: Conflicto (duplicado o estado incompatible)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    UnprocessableEntity:
+      description: Datos correctos pero no procesables (reglas de negocio)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    ServerError:
+      description: Error interno
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"

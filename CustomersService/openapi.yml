@@ -1,0 +1,427 @@
+openapi: 3.0.1
+info:
+  title: Customer Service API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8086
+
+tags:
+  - name: Customers
+
+paths:
+  /api/v1/customers:
+    get:
+      tags:
+        - Customers
+      summary: List customers
+      operationId: listCustomers
+      parameters:
+        - in: query
+          name: type
+          schema:
+            $ref: '#/components/schemas/CustomerType'
+        - in: query
+          name: segment
+          schema:
+            $ref: '#/components/schemas/CustomerSegment'
+        - in: query
+          name: page
+          schema: {type: integer, minimum: 0, default: 0 }
+          description: "Página (0-based)"
+        - in: query
+          name: size
+          schema: {type: integer, minimum: 1,maximum: 100,default: 20 }
+          description: "Tamaño de página (1..100)"
+        - in: query
+          name: sort
+          schema:
+            type: string
+            enum: [createdAt , firstName, lastName , businessName]
+          description: "Campo por el que ordenar (whitelist)"
+        - in: query
+          name: direction
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: asc
+            description: "Dirección de orden(asc por defecto)"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerResponse'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+    post:
+      tags:
+        - Customers
+      summary: Create customer
+      description: El backend forzará segment=STANDARD en creación (no enviar segment).
+      operationId: createCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreateRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          $ref: '#/components/responses/Error400'
+        '409':
+          $ref: '#/components/responses/Error409'
+        '422':
+          $ref: '#/components/responses/Error422'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+  /api/v1/customers/{id}:
+    get:
+      tags:
+        - Customers
+      summary: Get by id
+      operationId: getCustomerById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '404':
+          $ref: '#/components/responses/Error404'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+    put:
+      tags:
+        - Customers
+      summary: Update customer
+      operationId: updateCustomer
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '404':
+          $ref: '#/components/responses/Error404'
+        '409':
+          $ref: '#/components/responses/Error409'
+        '422':
+          $ref: '#/components/responses/Error422'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+    delete:
+      tags:
+        - Customers
+      summary: Delete customer
+      operationId: deleteCustomer
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '404':
+          $ref: '#/components/responses/Error404'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+  /api/v1/customers/eligibility:
+    get:
+      tags:
+        - Customers
+      summary: Eligibility by document
+      operationId: getEligibility
+      parameters:
+        - in: query
+          name: documentType
+          required: true
+          schema:
+            $ref: '#/components/schemas/DocumentType'
+        - in: query
+          name: documentNumber
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EligibilityResponse'
+        '404':
+          $ref: '#/components/responses/Error404'
+        '409':
+          $ref: '#/components/responses/Error409'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+  /api/v1/customers/document/{number}:
+    get:
+      tags:
+        - Customers
+      summary: Get customer by documentNumber
+      operationId: getCustomerByDocumentNumber
+      parameters:
+        - in: path
+          name: number
+          required: true
+          description: Customer documentNumber
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '404':
+          $ref: '#/components/responses/Error404'
+        '500':
+          $ref: '#/components/responses/Error500'
+
+components:
+  schemas:
+    CustomerType:
+      type: string
+      enum:
+        - PERSONAL
+        - BUSINESS
+
+    CustomerSegment:
+      type: string
+      enum:
+        - STANDARD
+        - VIP
+        - PYME
+
+    DocumentType:
+      type: string
+      enum:
+        - DNI
+        - PASSPORT
+        - RUC
+        - CE
+
+    Address:
+      type: object
+      required:
+        - line1
+        - city
+        - district
+        - country
+      properties:
+        line1:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        country:
+          type: string
+
+    CustomerCreateRequest:
+      type: object
+      required:
+        - type
+        - documentType
+        - documentNumber
+      properties:
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        firstName:
+          type: string
+          maxLength: 100
+        lastName:
+          type: string
+          maxLength: 100
+        businessName:
+          type: string
+          maxLength: 200
+        email:
+          type: string
+          format: email
+        documentType:
+          $ref: '#/components/schemas/DocumentType'
+        documentNumber:
+          type: string
+        phone:
+          type: string
+          pattern: '^\+519\d{8}$'
+        address:
+          $ref: '#/components/schemas/Address'
+        active:
+          type: boolean
+          default: true
+
+    CustomerUpdateRequest:
+      type: object
+      required:
+        - type
+        - documentType
+        - documentNumber
+        - segment
+      properties:
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        segment:
+          $ref: '#/components/schemas/CustomerSegment'
+        firstName:
+          type: string
+          maxLength: 100
+        lastName:
+          type: string
+          maxLength: 100
+        businessName:
+          type: string
+          maxLength: 200
+        email:
+          type: string
+          format: email
+        documentType:
+          $ref: '#/components/schemas/DocumentType'
+        documentNumber:
+          type: string
+        phone:
+          type: string
+          pattern: '^\+519\d{8}$'
+        address:
+          $ref: '#/components/schemas/Address'
+        active:
+          type: boolean
+
+    CustomerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        displayName:
+          type: string
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        segment:
+          $ref: '#/components/schemas/CustomerSegment'
+        firstName:
+          type: string
+        lastName:
+          type: string
+        businessName:
+          type: string
+        email:
+          type: string
+          format: email
+        documentType:
+          $ref: '#/components/schemas/DocumentType'
+        documentNumber:
+          type: string
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        active:
+          type: boolean
+        deletedAt:
+          type: string
+          format: date-time
+          readOnly: true
+
+    EligibilityResponse:
+      type: object
+      properties:
+        customerId:
+          type: string
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        profile:
+          $ref: '#/components/schemas/CustomerSegment'
+
+    Problem:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+        path:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
+  responses:
+    Error400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Error404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Error409:
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Error422:
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Error500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'

@@ -1,0 +1,294 @@
+openapi: 3.0.0
+info:
+  title: Transaction API
+  version: 1.0.0
+  description: API to manage financial transactions
+
+servers:
+  - url: http://localhost:8095/api/v1
+
+paths:
+  /transactions:
+    get:
+      summary: Get List of all transactions
+      responses:
+        '200':
+          description: List of transactions
+          content:
+            application/stream+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TransactionGet'
+    post:
+      summary: Create a new transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionPost'
+      responses:
+        '201':
+          description: Transaction Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionGet'
+    put:
+      summary: Update a transaction (Fields except id are optionals)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionPut'
+      responses:
+        '200':
+          description: Transaction updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionGet'
+  /transactions/{id}:
+    delete:
+      summary: Delete a transaction
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Transaction deleted
+    get:
+      summary: Get a transaction by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single transaction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionGet'
+        '404':
+          description: Transaction not found
+
+  /transactions/product/{id}:
+    get:
+      summary: Get Transactions and Products Balance by Client's Product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product information found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionGetClientBalance'
+  /transactions/client/{document}:
+    get:
+      summary: Get Transactions Between Dates by Client's document
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of transactions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TransactionGet'
+
+  /transactions/{type}/product/{id}:
+    get:
+      summary: Get Transactions Between Dates by Client's document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of transactions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TransactionGet'
+
+
+
+components:
+  schemas:
+    TransactionGet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: string
+          description: Transaction unique id
+        number:
+          type: integer
+          description: Transaction number
+        sender:
+          $ref: '#/components/schemas/Product'
+        receiver:
+          $ref: '#/components/schemas/Product'
+        type:
+          $ref: '#/components/schemas/TransactionType'
+        amount:
+          type: number
+          description: Amount to change according transaction type
+        createdDate:
+          type: string
+          format: date-time
+          description: Transaction date
+        holder:
+          $ref: '#/components/schemas/Person'
+        signatory:
+          $ref: '#/components/schemas/Person'
+
+    TransactionPost:
+      type: object
+      properties:
+        sender:
+          $ref: '#/components/schemas/Product'
+        receiver:
+          $ref: '#/components/schemas/Product'
+        type:
+          $ref: '#/components/schemas/TransactionType'
+        amount:
+          type: number
+          description: Amount to change according transaction type
+        holder:
+          $ref: '#/components/schemas/Person'
+        signatory:
+          $ref: '#/components/schemas/Person'
+
+    TransactionPut:
+      type: object
+      properties:
+        id:
+          type: string
+          format: string
+          description: Transaction unique id
+        sender:
+          $ref: '#/components/schemas/Product'
+        receiver:
+          $ref: '#/components/schemas/Product'
+        type:
+          $ref: '#/components/schemas/TransactionType'
+        amount:
+          type: number
+          description: Amount to change according transaction type
+        holder:
+          $ref: '#/components/schemas/Person'
+        signatory:
+          $ref: '#/components/schemas/Person'
+    TransactionGetClientBalance:
+      type: object
+      properties:
+        product:
+          $ref: '#/components/schemas/Product'
+        transactions:
+          type: array
+          description: Transactions relative to product
+          items:
+            $ref: '#/components/schemas/TransactionGet'
+
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          format: string
+          description: Unique ID
+          nullable: true
+        type:
+          $ref: '#/components/schemas/ProductType'
+        number:
+          type: string
+          format: string
+          description: Number of products if corresponds
+          nullable: true
+        balance:
+          type: number
+          description: Product Balance
+          nullable: true
+        limit:
+          type: number
+          description: Limit for a Credit Type Product
+          nullable: true
+    Person:
+      nullable: true
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique Holder Identifier
+          nullable: true
+        document:
+          type: string
+          pattern: '^\d{8,11}$'
+          description: Document number (8, 9, or 11 digits)
+        type:
+          type: string
+          format: string
+          enum: [personal,personal_vip,business,business_vip]
+          nullable: true
+        fullName:
+          type: string
+          description: Full responsible name
+          nullable: true
+    ProductType:
+      type: string
+      format: string
+      enum: [savings_account, checking_account, fixed_term_account, personal_credit, business_credit, credit_card]
+      description: Type of product
+    TransactionType:
+      type: string
+      enum: [deposit, withdrawal, payment, purchase, charge, create, transfer]
+      description: Type of transaction
