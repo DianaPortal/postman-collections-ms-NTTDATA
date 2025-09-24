@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "14c135a9-9ba3-4340-9fae-4f215840f9ba",
+		"name": "NTT - Customers Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38987556"
+	},
+	"item": [
+		{
+			"name": "List customers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List customers ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers/68d35b26c81b6f52b0e21cad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"68d35b26c81b6f52b0e21cad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado  filtro segment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers?segment=STANDARD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "segment",
+							"value": "STANDARD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado por filtro combinado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers?type=PERSONAL&segment=STANDARD&page=0&size=20&sort=createdAt&direction=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "PERSONAL"
+						},
+						{
+							"key": "segment",
+							"value": "STANDARD"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "20"
+						},
+						{
+							"key": "sort",
+							"value": "createdAt"
+						},
+						{
+							"key": "direction",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado filtro por documentType",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers?documentType=DNI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "documentType",
+							"value": "DNI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear personal minima",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\":\"Arturo\",\r\n  \"lastName\":\"Roncal\", \r\n  \"type\": \"PERSONAL\",\r\n  \"documentType\": \"DNI\",\r\n  \"documentNumber\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear personal completo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"PERSONAL\",\r\n  \"documentType\": \"DNI\",\r\n  \"documentNumber\": \"12345999\",\r\n  \"firstName\": \"Juan\",\r\n  \"lastName\": \"Pérez\",\r\n  \"email\": \"demo@example.com\",\r\n  \"phone\": \"+51999999999\",\r\n  \"address\": {\r\n    \"line1\": \"Av. Siempre Viva 123\",\r\n    \"city\": \"Lima\",\r\n    \"district\": \"Lima\",\r\n    \"country\": \"PE\"\r\n  },\r\n  \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear business minima",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"BUSINESS\",\r\n  \"documentType\": \"RUC\",\r\n  \"documentNumber\": \"20123451219\",\r\n  \"businessName\": \"Mi Empresa SAC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear business completo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"BUSINESS\",\r\n  \"documentType\": \"RUC\",\r\n  \"documentNumber\": \"20123456789\",\r\n  \"businessName\": \"Mi Empresa SAC\",\r\n  \"email\": \"contacto@miempresa.com\",\r\n  \"phone\": \"+51987654321\",\r\n  \"address\": {\r\n    \"line1\": \"Calle Comercio 456\",\r\n    \"city\": \"Lima\",\r\n    \"district\": \"San Isidro\",\r\n    \"country\": \"PE\"\r\n  },\r\n  \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar personal",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"PERSONAL\",\r\n  \"documentType\": \"DNI\",\r\n  \"documentNumber\": \"12345678\",\r\n  \"segment\": \"VIP\",\r\n  \"firstName\": \"Arturo\",\r\n  \"lastName\": \"Roncal\",\r\n  \"email\": \"vip@example.com\",\r\n  \"phone\": \"+51999999999\",\r\n  \"address\": { \"line1\": \"Av. X 123\", \"city\": \"Lima\", \"district\": \"Miraflores\", \"country\": \"PE\" },\r\n  \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers/68d35b26c81b6f52b0e21cad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"68d35b26c81b6f52b0e21cad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eligibilidad por documento",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers/eligibility?documentType=DNI&documentNumber=12345678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"eligibility"
+					],
+					"query": [
+						{
+							"key": "documentType",
+							"value": "DNI"
+						},
+						{
+							"key": "documentNumber",
+							"value": "12345678"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por número de documento",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZ3VWLWFmVEhmUUt4UGxSZjh2VHNNa3hlYmZiRXRlNTV3NVduSXA5QjNZIn0.eyJleHAiOjE3NTg3MzM2NTMsImlhdCI6MTc1ODczMTg1MywiYXV0aF90aW1lIjoxNzU4NzMxODUyLCJqdGkiOiI4ZjIzOTZmNS1mM2U1LTQyNDgtYjM1MC1mOThhYmQ5MzEwMzUiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwOTEvcmVhbG1zL250dGRhdGFiYW5rIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmZDgyMzkzLTViODItNDA3MC1iMWE2LTY0ZmZjNjUyMWFjNyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im50dC1ib290Y2FtcC1hcHAiLCJzaWQiOiJmODM0MzUzNy1kNzY3LTQ2MDYtYmJjZi1jYmRlNTIwNzBhNjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vb2F1dGgucHN0bW4uaW8iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlBhcnRuZXJzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbnR0ZGF0YWJhbmsiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzY3AiOlsiUGFydG5lcnMiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1udHRkYXRhYmFuayJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJDQVJMT1MgQVJUVVJPIFJPTkNBTCBIRVJNRU5FR0lMRE8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcnR1cm8iLCJnaXZlbl9uYW1lIjoiQ0FSTE9TIEFSVFVSTyIsImZhbWlseV9uYW1lIjoiUk9OQ0FMIEhFUk1FTkVHSUxETyIsImVtYWlsIjoicm9uY2FsaGVybWVuZWdpbGRvQGdtYWlsLmNvbSJ9.ATekZAVFcxU8rpLaRMelmzUEeWz_l1t3ToVJOGJrG9t5LtS-Sj2G7gNbGJ_tjnlBf1om-QRdbmNXMJQtmr_dYs6y7tjkl9eRXLqyaidWg5159TKH2-Mm_ntBnwWaEBir7LyhIJdzm7HPPMrwaOg1dyfA8LSaKbwmShacPjedUJKNqX-VWIaIhD-YDTmgyFxZUIaCEHt30rgtySW8sRiG9qP24GgPs6s5jy-miKmZmbgEeG3ydVlg6-1LDIyOX6ByyMoA3jlTMnTJDvf-Jw2cqM0Y0pKCGP9wP-4PLDV-FaSL1ww8vTyuKanItVYoqW6k1Wp14VMpwPLER1e1xQZhKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/api/v1/customers/document/12345678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"document",
+						"12345678"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "token",
+			"value": "<PASTE_JWT>"
+		},
+		{
+			"key": "page",
+			"value": "0"
+		},
+		{
+			"key": "size",
+			"value": "10"
+		},
+		{
+			"key": "sort",
+			"value": "createdAt"
+		},
+		{
+			"key": "direction",
+			"value": "desc"
+		},
+		{
+			"key": "customerType",
+			"value": "PERSONAL"
+		},
+		{
+			"key": "segment",
+			"value": "STANDARD"
+		},
+		{
+			"key": "documentType",
+			"value": "DNI"
+		},
+		{
+			"key": "documentNumber",
+			"value": "12345678"
+		},
+		{
+			"key": "firstName",
+			"value": "Juan"
+		},
+		{
+			"key": "lastName",
+			"value": "Pérez"
+		},
+		{
+			"key": "businessName",
+			"value": ""
+		},
+		{
+			"key": "email",
+			"value": "demo@example.com"
+		},
+		{
+			"key": "phone",
+			"value": "+51999999999"
+		},
+		{
+			"key": "addressStreet",
+			"value": "Av. Siempre Viva 123"
+		},
+		{
+			"key": "addressCity",
+			"value": "Lima"
+		},
+		{
+			"key": "addressZip",
+			"value": "15001"
+		},
+		{
+			"key": "customerId",
+			"value": ""
+		}
+	]
+}
