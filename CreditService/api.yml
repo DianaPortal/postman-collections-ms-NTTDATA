@@ -16,7 +16,7 @@ tags:
 
 
 paths:
-  /credits:
+  /api/credits:
     post:
       tags: [Credits]
       summary: Registrar crédito
@@ -74,7 +74,7 @@ paths:
                 type: array
                 items: { $ref: '#/components/schemas/CreditResponse' }
 
-  /customers/{customerId}/credits:
+  /api/customers/{customerId}/credits:
     get:
       tags: [Credits]
       summary: Listar créditos por cliente
@@ -104,7 +104,7 @@ paths:
                 items: { $ref: '#/components/schemas/CreditResponse' }
         '404': { $ref: '#/components/responses/NotFound' }
 
-  /credits/search:
+  /api/credits/search:
     get:
       tags: [Credits]
       summary: Buscar créditos por documento de cliente
@@ -132,7 +132,7 @@ paths:
         '404': { $ref: '#/components/responses/NotFound' }
         '503': { $ref: '#/components/responses/ServiceUnavailable' }
 
-  /credits/{id}:
+  /apí/credits/{id}:
     parameters:
       - name: id
         in: path
@@ -202,7 +202,7 @@ paths:
         '404': { $ref: '#/components/responses/NotFound' }
         '409': { $ref: '#/components/responses/Conflict' }
 
-  /credits/{id}/close:
+  /api/credits/{id}/close:
     parameters:
       - name: id
         in: path
@@ -230,7 +230,7 @@ paths:
         '404': { $ref: '#/components/responses/NotFound' }
         '409': { $ref: '#/components/responses/Conflict' }
 
-  /credits/{id}/limit:
+  /api/credits/{id}/limit:
     parameters:
       - name: id
         in: path
@@ -274,7 +274,7 @@ paths:
             application/json:
               schema: { $ref: '#/components/schemas/Error' }
 
-  /credits/{id}/payments:
+  /api/credits/{id}/payments:
     post:
       tags: [Credits]
       summary: Aplicar pago a un crédito
@@ -305,7 +305,7 @@ paths:
         '404': { $ref: '#/components/responses/NotFound' }
         '409': { $ref: '#/components/responses/Conflict' }
 
-  /credits/{id}/charges:
+  /api/credits/{id}/charges:
     post:
       tags: [Credits]
       summary: Aplicar cargo (consumo)
@@ -336,7 +336,7 @@ paths:
         '404': { $ref: '#/components/responses/NotFound' }
         '422': { $ref: '#/components/responses/UnprocessableEntity' }
 
-  /credits/{id}/balance:
+  /api/credits/{id}/balance:
     get:
       tags: [Credits]
       summary: Obtener saldos y disponible
@@ -355,7 +355,7 @@ paths:
               schema: { $ref: '#/components/schemas/CreditBalance' }
         '404': { $ref: '#/components/responses/NotFound' }
 
-  /credits/{id}/movements:
+  /api/credits/{id}/movements:
     get:
       tags: [Credits]
       summary: Listar movimientos de un crédito
@@ -383,7 +383,7 @@ paths:
                 items: { $ref: '#/components/schemas/CreditMovement' }
         '404': { $ref: '#/components/responses/NotFound' }
 
-  /credits/overdue/{customerId}:
+  /api/credits/overdue/{customerId}:
     get:
       tags: [ Credits ]
       summary: Estado de deuda del cliente
